@@ -1,8 +1,9 @@
 // player.js
+
 class Player {
     constructor() {
         this.name = "Unknown";
-        this.vehicle = null; // e.g. a Vehicle instance
+        this.vehicle = null;
     }
 
     setName(name) {
@@ -21,3 +22,5 @@ class Player {
         return this.vehicle;
     }
 }
+
+window.Player = Player;

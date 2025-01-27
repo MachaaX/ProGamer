@@ -2,7 +2,7 @@
 
 const Tracks = [
     {
-        key: 'anilloMap',   // This should match the tilemap key you load (e.g. "anilloMap")
+        key: 'anilloMap',
         name: 'Anillo',
         laps: 3,
         initX: 380,
@@ -24,5 +24,4 @@ const Tracks = [
     }
 ];
 
-// Make it global so other files can reference
 window.Tracks = Tracks;

@@ -1,32 +1,37 @@
 // main.js
 
 window.onload = function () {
-  // A global object to store ephemeral data (selected name, track, vehicle, etc.)
-  // This is a simple alternative to the old "gamesession" object.
+  // Global object to store session data
   window.PsycoRally = {
     settings: new Settings(),
     player: new Player(),
-    chosenTrackKey: null,     // e.g. "anilloMap" or "jambaMap" or "lubaloccMap"
-    raceResult: null          // stored after finishing (time, best lap, etc.)
+    chosenTrackKey: null,
+    raceResult: null
   };
 
   const config = {
     type: Phaser.AUTO,
-    width: 900,
-    height: 500,
     parent: 'gameContainer',
     backgroundColor: '#222',
 
+    // Some default "design" resolution (16:9 is common).
+    width: 960,
+    height: 540,
+
+    // Let Phaser scale to fit:
     scale: {
-      mode: Phaser.Scale.FIT,          // or Phaser.Scale.ENVELOP, etc.
+      mode: Phaser.Scale.FIT,
       autoCenter: Phaser.Scale.CENTER_BOTH
     },
-    
+
     physics: {
       default: 'arcade',
-      arcade: { debug: false }
+      arcade: {
+        debug: false
+      }
     },
-    // List all Scenes in the order you first want them used
+
+    // List all Scenes
     scene: [
       BootScene,
       IntroScene,
@@ -39,5 +44,5 @@ window.onload = function () {
     ]
   };
 
-  const game = new Phaser.Game(config);
+  new Phaser.Game(config);
 };

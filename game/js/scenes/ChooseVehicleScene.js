@@ -1,4 +1,5 @@
 // ChooseVehicleScene.js
+
 class ChooseVehicleScene extends Phaser.Scene {
   constructor() {
     super({ key: 'ChooseVehicleScene' });
@@ -6,8 +7,7 @@ class ChooseVehicleScene extends Phaser.Scene {
 
   create() {
     const { width, height } = this.scale;
-
-    this.vehicles = Garage.getVehicles(); // from garage.js
+    this.vehicles = Garage.getVehicles();
     this.currentIndex = 0;
 
     this.add.text(width / 2, 50,
@@ -20,15 +20,13 @@ class ChooseVehicleScene extends Phaser.Scene {
       color: '#00ff00'
     }).setOrigin(0.5);
 
-    this.add.text(width / 2, height - 50, 'Press LEFT/RIGHT, then ENTER', {
+    this.add.text(width / 2, height - 40, 'LEFT/RIGHT & ENTER', {
       fontSize: '16px',
       color: '#cccccc'
     }).setOrigin(0.5);
 
-    // Show initial vehicle name
     this.updateVehicleText();
 
-    // Keyboard input
     this.input.keyboard.on('keydown-LEFT', () => {
       this.currentIndex = (this.currentIndex + this.vehicles.length - 1) % this.vehicles.length;
       this.updateVehicleText();
@@ -38,8 +36,7 @@ class ChooseVehicleScene extends Phaser.Scene {
       this.updateVehicleText();
     });
     this.input.keyboard.on('keydown-ENTER', () => {
-      const chosen = this.vehicles[this.currentIndex];
-      window.PsycoRally.player.setVehicle(chosen);
+      window.PsycoRally.player.setVehicle(this.vehicles[this.currentIndex]);
       this.scene.start('ChooseTrackScene');
     });
   }
@@ -49,4 +46,5 @@ class ChooseVehicleScene extends Phaser.Scene {
     this.vehicleText.setText(v.name.toUpperCase());
   }
 }
+
 window.ChooseVehicleScene = ChooseVehicleScene;

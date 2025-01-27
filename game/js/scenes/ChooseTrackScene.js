@@ -1,4 +1,5 @@
 // ChooseTrackScene.js
+
 class ChooseTrackScene extends Phaser.Scene {
   constructor() {
     super({ key: 'ChooseTrackScene' });
@@ -6,7 +7,7 @@ class ChooseTrackScene extends Phaser.Scene {
 
   create() {
     const { width, height } = this.scale;
-    this.tracks = Tracks;  // from tracks.js
+    this.tracks = Tracks;
     this.currentIndex = 0;
 
     this.add.text(width / 2, 50,
@@ -14,7 +15,7 @@ class ChooseTrackScene extends Phaser.Scene {
       { fontSize: '20px', color: '#ffffff' }
     ).setOrigin(0.5);
 
-    this.add.text(width / 2, height - 50, 'Press LEFT/RIGHT, then ENTER', {
+    this.add.text(width / 2, height - 40, 'LEFT/RIGHT & ENTER', {
       fontSize: '16px',
       color: '#cccccc'
     }).setOrigin(0.5);
@@ -35,9 +36,7 @@ class ChooseTrackScene extends Phaser.Scene {
       this.updateTrackText();
     });
     this.input.keyboard.on('keydown-ENTER', () => {
-      // Save chosen track to global
       window.PsycoRally.chosenTrackKey = this.tracks[this.currentIndex].key;
-      // Move on to Preload
       this.scene.start('PreloadScene');
     });
   }
@@ -46,4 +45,5 @@ class ChooseTrackScene extends Phaser.Scene {
     this.trackText.setText(this.tracks[this.currentIndex].name);
   }
 }
+
 window.ChooseTrackScene = ChooseTrackScene;

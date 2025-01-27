@@ -1,9 +1,6 @@
 // garage.js
 
 class Garage {
-    /**
-     * Returns a list of available vehicles.
-     */
     static getVehicles() {
         return [
             new RacingVehicle('sbremba'),
@@ -13,5 +10,4 @@ class Garage {
     }
 }
 
-// Expose as global if desired
 window.Garage = Garage;
