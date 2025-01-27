@@ -14,9 +14,9 @@ class PreloadScene extends Phaser.Scene {
     // 1) Load tilemap(s)
     const chosenKey = window.PsycoRally.chosenTrackKey;
     // If you prefer, load all three right now:
-    this.load.tilemapTiledJSON('anilloMap', 'assets/tilemaps/anillo.json');
-    this.load.tilemapTiledJSON('jambaMap',  'assets/tilemaps/jamba.json');
-    this.load.tilemapTiledJSON('lubaloccMap','assets/tilemaps/lubalocc.json');
+    // this.load.tilemapTiledJSON('anilloMap', 'assets/tilemaps/anillo.json');
+    // this.load.tilemapTiledJSON('jambaMap',  'assets/tilemaps/jamba.json');
+    // this.load.tilemapTiledJSON('lubaloccMap','assets/tilemaps/lubalocc.json');
     // Then you can use whichever is chosen.
 
     if (chosenKey === 'anilloMap') {

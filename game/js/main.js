@@ -16,6 +16,12 @@ window.onload = function () {
     height: 500,
     parent: 'gameContainer',
     backgroundColor: '#222',
+
+    scale: {
+      mode: Phaser.Scale.FIT,          // or Phaser.Scale.ENVELOP, etc.
+      autoCenter: Phaser.Scale.CENTER_BOTH
+    },
+    
     physics: {
       default: 'arcade',
       arcade: { debug: false }
