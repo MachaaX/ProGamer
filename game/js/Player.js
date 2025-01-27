@@ -1,20 +1,23 @@
-PsycoRally = PsycoRally || {};
+// player.js
+class Player {
+    constructor() {
+        this.name = "Unknown";
+        this.vehicle = null; // e.g. a Vehicle instance
+    }
 
-PsycoRally.Player = function() {
-
-    this.setName = function(name) {
+    setName(name) {
         this.name = name;
     }
 
-    this.getName = function() {
+    getName() {
         return this.name;
     }
 
-    this.setVehicle = function(vehicle) {
+    setVehicle(vehicle) {
         this.vehicle = vehicle;
     }
 
-    this.getVehicle = function() {
+    getVehicle() {
         return this.vehicle;
     }
 }
